@@ -4,9 +4,8 @@ declare module "resolvable-promise" {
 
   interface Resolvable<T> extends Promise<T> {
 
-    resolve(value: T): Promise<T>;
-    resolve(): Promise<void>;
-    reject(reason?: any): Promise<T>;
+    resolve(value?: T): void;
+    reject(reason?: any): void;
 
   }
 
