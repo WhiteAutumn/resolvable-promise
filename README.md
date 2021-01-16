@@ -8,6 +8,13 @@ Oh, and I also added types.
 
 #
 
+### Installation
+```
+npm install resolvable-promise
+```
+
+#
+
 ### Basic Usage
 
 The basic usage is as follows:
