@@ -1,0 +1,9 @@
+{
+  "name": "resolvable-promise",
+  "version": "1.0.0",
+  "description": "Promises that can be resolved or rejected externally",
+  "main": "index.js",
+  "keywords": ["promise", "resolvable", "rejectable"],
+  "author": "WhiteAutumn",
+  "license": "ISC"
+}
