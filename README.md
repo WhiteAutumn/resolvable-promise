@@ -1,7 +1,7 @@
 # resolvable-promise
 
 I've found that for the majority of projects I keep needing to rewrite or copy-paste the same small piece of code,
-a function that creates a promise with the resolve and reject functions exposed. This repository is that small snippet
+a function that creates a promise with the resolve and reject functions exposed. This project is that small snippet
 of code, created mostly for my own convenience.
 
 Oh, and I also added types.
@@ -29,14 +29,14 @@ resolvable.resolve("Resolved!");
 ```
 Where the console output will be:
 ```
-Will now resolve...
+Resolving...
 Resolved!
 ```
 
 #
 
 ### Arguments
-You can optionally provide `makeResolvable` with an callback just like a promise:
+You can optionally provide `makeResolvable` with an executor callback just like a promise:
 ```javascript
 const resolvable = makeResolvable((resolve, reject) => {
   // Do something async...
