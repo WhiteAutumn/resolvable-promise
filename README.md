@@ -18,14 +18,12 @@ npm install resolvable-promise
 ### Basic Usage
 
 The basic usage is as follows:
-```javascript
-const resolvable = makeResolvable();
+```js
+const resolvable = Resolvable()
+resolvable.then(console.log)
 
-resolvable
-  .then(it => console.log(it));
-
-console.log("Resolving...");
-resolvable.resolve("Resolved!");
+console.log('Resolving...')
+resolvable.resolve('Resolved!')
 ```
 Where the console output will be:
 ```
@@ -35,17 +33,29 @@ Resolved!
 
 #
 
+### As constructor
+Looks like a Promise ✨
+```js
+let resolvable = new Resolvable()
+resolvable.then(console.log)
+
+console.log('Resolving...')
+resolvable.resolve('Resolved!')
+```
+
+#
+
 ### Arguments
-You can optionally provide `makeResolvable` with an executor callback just like a promise:
-```javascript
-const resolvable = makeResolvable((resolve, reject) => {
+You can optionally provide `Resolvable` with an executor callback just like a promise:
+```js
+const resolvable = new Resolvable((resolve, reject) => {
   // Do something async...
-  resolve("Resolved!");
-});
+  resolve('Resolved!')
+})
 ```
 
 It's also possible to provide it with a promise that you might have gotten from somewhere else:
-```javascript
-const res = fetch("https://swapi.dev/api/people/");
-const resolvable = makeResolvable(res);
+```js
+const res = fetch('https://swapi.dev/api/people/')
+const resolvable = new Resolvable(res)
 ```

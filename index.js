@@ -1,20 +1,18 @@
-const makeResolvable = (promise) => {
-  let resolve, reject;
-  const result = new Promise((res, rej) => {
-    resolve = res;
-    reject = rej;
+function Resolvable(handler) {
+  let resolve, reject
+  const result = new Promise(async (res, rej) => {
+    resolve = res
+    reject = rej
 
-    if (typeof promise === "function") {
-      promise(res, rej);
-    }
-    else if (promise instanceof Promise) {
-      promise.then((it) => res(it)).catch((it) => rej(it));
-    }
-  });
+    if(typeof handler == 'function')
+      handler(res, rej)
+    else if(handler instanceof Promise)
+      handler.then(res, rej)
+  })
 
-  result.resolve = resolve;
-  result.reject = reject;
-  return result;
-};
+  result.resolve = resolve
+  result.reject = reject
+  return result
+}
 
-module.exports = makeResolvable;
+module.exports = Resolvable
