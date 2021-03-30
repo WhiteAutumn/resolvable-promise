@@ -1,13 +1,15 @@
-function Resolvable(handler) {
+const makeResolvable = (promise) => {
   let resolve, reject
   const result = new Promise(async (res, rej) => {
     resolve = res
     reject = rej
 
-    if(typeof handler == 'function')
+    if (typeof promise === "function") {
       promise(res, rej)
-    else if(handler instanceof Promise)
-      handler.then(res, rej)
+    }
+    else if (promise instanceof Promise) {
+      promise.then(res, rej)
+    }
   })
 
   result.resolve = resolve
@@ -15,4 +17,4 @@ function Resolvable(handler) {
   return result
 }
 
-module.exports = Resolvable
+module.exports = makeResolvable
