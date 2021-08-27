@@ -2,14 +2,12 @@ type Executor<T> = (resolve: (value: T | PromiseLike<T>) => void, reject: (reaso
 
 declare module "resolvable-promise" {
 
-  interface Resolvable<T> extends Promise<T> {
+  export interface Resolvable<T> extends Promise<T> {
 
     resolve(value?: T): void;
     reject(reason?: any): void;
 
   }
 
-  function makeResolvable<T>(promise?: Promise<T> | Executor<T>): Resolvable<T>;
-
-  export = makeResolvable;
+  export default function makeResolvable<T>(promise?: Promise<T> | Executor<T>): Resolvable<T>;
 }
