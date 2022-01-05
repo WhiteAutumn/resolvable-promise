@@ -5,6 +5,7 @@ extends:
   - 'plugin:@typescript-eslint/recommended'
 
 rules:
+  '@typescript-eslint/no-empty-function': off
   '@typescript-eslint/semi': [error]
   quotes: [error, single]
   indent: [error, 2]
