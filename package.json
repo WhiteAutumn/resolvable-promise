@@ -21,7 +21,7 @@
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "prepare": "npm run build",
+    "prepublish": "npm run build",
     "build": "tsc"
   },
   "devDependencies": {
