@@ -1,6 +1,6 @@
 {
   "name": "resolvable-promise",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Promises with the resolve and reject functions exposed",
   "main": "dist/index.js",
   "keywords": [
