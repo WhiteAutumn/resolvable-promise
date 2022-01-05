@@ -23,12 +23,12 @@ function Resolvable<T>(handler?: Executor<T>) {
   return result;
 }
 
-export default Resolvable as {
+export = Resolvable as {
 	new <T>(promise?: Executor<T>): Resolvable<T>
 	<T>(promise?: Executor<T>): Resolvable<T>
 };
 
-export interface Resolvable<T> extends Promise<T> {
+interface Resolvable<T> extends Promise<T> {
 	resolve: Resolve<T>
 	reject: Reject
 }
