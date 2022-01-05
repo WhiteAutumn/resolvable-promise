@@ -6,7 +6,7 @@ function Resolvable<T>(handler?: Executor<T>) {
     resolve = res;
     reject = rej;
 
-    if (!handler) {
+    if (handler == null) {
       return;
     }
 
