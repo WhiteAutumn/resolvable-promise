@@ -1,32 +1,32 @@
 function Resolvable<T>(handler?: Executor<T>) {
-	let resolve!: Resolve<T>
-	let reject!: Reject
+  let resolve!: Resolve<T>;
+  let reject!: Reject;
 
-	let result: Resolvable<T> = new Promise((res, rej) => {
-		resolve = res
-		reject = rej
+  const result: Resolvable<T> = new Promise((res, rej) => {
+    resolve = res;
+    reject = rej;
 
-		if (!handler) return
-		if (typeof handler === 'function') {
-			handler(res, rej)
-		} else if (handler.constructor === Promise) {
-			handler.then(res, rej)
-		}
-	}) as any
+    if (!handler) return;
+    if (typeof handler === 'function') {
+      handler(res, rej);
+    } else if (handler.constructor === Promise) {
+      handler.then(res, rej);
+    }
+  }) as any;
 
-	result.resolve = resolve
-	result.reject = reject
-	return result
+  result.resolve = resolve;
+  result.reject = reject;
+  return result;
 }
 
 export default Resolvable as {
 	new <T>(promise?: Executor<T>): Resolvable<T>
 	<T>(promise?: Executor<T>): Resolvable<T>
-}
+};
 
 type Executor<T> =
 	| Promise<T>
-	| ((resolve: (value: T | PromiseLike<T>) => void, reject: (reason?: any) => void) => void)
+	| ((resolve: (value: T | PromiseLike<T>) => void, reject: (reason?: any) => void) => void);
 
 interface Resolvable<T> extends Promise<T> {
 	resolve: Resolve<T>

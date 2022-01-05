@@ -1,29 +1,34 @@
 {
-	"name": "resolvable-promise",
-	"version": "2.0.0",
-	"description": "Promises with the resolve and reject functions exposed",
-	"main": "dist/index.js",
-	"keywords": [
-		"promise",
-		"resolvable",
-		"rejectable"
-	],
-	"author": "WhiteAutumn",
-	"license": "ISC",
-	"homepage": "https://github.com/WhiteAutumn/resolvable-promise",
-	"bugs": {
-		"url": "https://github.com/WhiteAutumn/resolvable-promise/issues"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/WhiteAutumn/resolvable-promise.git"
-	},
-	"scripts": {
-		"prepare": "npm run build",
-		"build": "tsc"
-	},
-	"devDependencies": {
-		"ts-node": "^10.4.0",
-		"typescript": "^4.5.4"
-	}
+  "name": "resolvable-promise",
+  "version": "2.0.0",
+  "description": "Promises with the resolve and reject functions exposed",
+  "main": "dist/index.js",
+  "keywords": [
+    "promise",
+    "resolvable",
+    "rejectable"
+  ],
+  "author": "WhiteAutumn",
+  "license": "ISC",
+  "homepage": "https://github.com/WhiteAutumn/resolvable-promise",
+  "bugs": {
+    "url": "https://github.com/WhiteAutumn/resolvable-promise/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WhiteAutumn/resolvable-promise.git"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "prepare": "npm run build",
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.9.0",
+    "@typescript-eslint/parser": "^5.9.0",
+    "eslint": "^8.6.0",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.4"
+  }
 }
