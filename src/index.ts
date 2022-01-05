@@ -24,18 +24,14 @@ export default Resolvable as {
 	<T>(promise?: Executor<T>): Resolvable<T>
 };
 
-type Executor<T> =
-	| Promise<T>
-	| ((resolve: (value: T | PromiseLike<T>) => void, reject: (reason?: any) => void) => void);
-
-interface Resolvable<T> extends Promise<T> {
+export interface Resolvable<T> extends Promise<T> {
 	resolve: Resolve<T>
 	reject: Reject
 }
 
-interface Resolve<T> {
-	(value?: T): void
-}
-interface Reject {
-	(reason?: any): void
-}
+type Executor<T> =
+	| Promise<T>
+	| ((resolve: (value: T | PromiseLike<T>) => void, reject: (reason?: any) => void) => void);
+
+type Resolve<T> = (value?: T) => void;
+type Reject = (reason?: any) => void;
