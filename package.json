@@ -23,6 +23,7 @@
     "lint:fix": "eslint . --fix",
     "test": "mocha .",
     "test:watch": "mocha --watch --reporter min .",
+    "type-check": "tsc --noEmit",
     "prepublish": "npm run build",
     "build": "tsc"
   },
