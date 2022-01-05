@@ -1,0 +1,13 @@
+parser: '@typescript-eslint/parser'
+
+extends:
+  - 'eslint:recommended'
+  - 'plugin:@typescript-eslint/recommended'
+
+rules:
+  '@typescript-eslint/no-explicit-any': off
+  '@typescript-eslint/no-empty-function': off
+  '@typescript-eslint/semi': [error]
+  quotes: [error, single]
+  indent: [error, 2]
+  curly: [error, 'all']
