@@ -6,10 +6,14 @@ function Resolvable<T>(handler?: Executor<T>) {
     resolve = res;
     reject = rej;
 
-    if (!handler) return;
+    if (!handler) {
+      return;
+    }
+
     if (typeof handler === 'function') {
       handler(res, rej);
-    } else if (handler.constructor === Promise) {
+    }
+    else if (handler.constructor === Promise) {
       handler.then(res, rej);
     }
   }) as any;

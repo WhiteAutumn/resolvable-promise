@@ -10,3 +10,4 @@ rules:
   '@typescript-eslint/semi': [error]
   quotes: [error, single]
   indent: [error, 2]
+  curly: [error, 'all']
