@@ -1,0 +1,9 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "commonjs",
+    "outDir": "dist/cjs"
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["src/index.esm.ts", "src/**/*.test.*", "node_modules", "dist"]
+}

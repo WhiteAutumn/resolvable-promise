@@ -5,9 +5,11 @@ extends:
   - 'plugin:@typescript-eslint/recommended'
 
 rules:
+  indent: [warn, tab]
+  eol-last: [warn, always]
+  linebreak-style: [warn, unix]
+  curly: [warn, 'all']
+  '@typescript-eslint/quotes': [warn, single]
+  '@typescript-eslint/semi': [warn, always]
   '@typescript-eslint/no-explicit-any': off
   '@typescript-eslint/no-empty-function': off
-  '@typescript-eslint/semi': [error]
-  quotes: [error, single]
-  indent: [error, 2]
-  curly: [error, 'all']

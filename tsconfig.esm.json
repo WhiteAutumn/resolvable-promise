@@ -1,0 +1,9 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "ESNext",
+    "outDir": "dist/mjs"
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["src/index.cjs.ts", "src/**/*.test.*", "node_modules", "dist"]
+}

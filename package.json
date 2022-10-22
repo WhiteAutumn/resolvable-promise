@@ -1,15 +1,18 @@
 {
   "name": "resolvable-promise",
-  "version": "2.0.3",
+  "version": "3.0.0",
   "description": "Promises with the resolve and reject functions exposed",
-  "main": "dist/index.js",
+  "author": "WhiteAutumn",
+  "license": "MIT",
   "keywords": [
     "promise",
     "resolvable",
-    "rejectable"
+    "rejectable",
+    "hybrid",
+    "esm",
+    "cjs",
+    "commonjs"
   ],
-  "author": "WhiteAutumn",
-  "license": "ISC",
   "homepage": "https://github.com/WhiteAutumn/resolvable-promise",
   "bugs": {
     "url": "https://github.com/WhiteAutumn/resolvable-promise/issues"
@@ -18,14 +21,41 @@
     "type": "git",
     "url": "git+https://github.com/WhiteAutumn/resolvable-promise.git"
   },
+  "engines": {
+    "node": ">=12.20.0"
+  },
+  "files": [
+    "dist",
+    "LICENSE"
+  ],
+  "main": "./dist/cjs/index.cjs.js",
+  "module": "./dist/mjs/index.esm.js",
+  "exports": {
+    ".": {
+      "import": {
+        "types":"./dist/mjs/index.esm.d.ts",
+        "default": "./dist/mjs/index.esm.js"
+      },
+      "require": {
+        "types": "./dist/cjs/index.cjs.d.ts",
+        "default": "./dist/cjs/index.cjs.js"
+      }
+    }
+  },
+  "volta": {
+    "node": "16.18.0"
+  },
   "scripts": {
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "test": "mocha .",
-    "test:watch": "mocha --watch --reporter min .",
+    "lint": "eslint . --color",
+    "lint:fix": "eslint . --fix --color",
+    "lint:strict": "eslint . --color --max-warnings=0",
+    "test": "mocha --colors .",
+    "test:watch": "mocha --watch --reporter min --colors .",
     "type-check": "tsc --noEmit",
-    "prepublish": "npm run build",
-    "build": "tsc"
+    "build": "run-p build:*",
+    "build:require": "tsc --project tsconfig.cjs.json",
+    "build:modules": "tsc --project tsconfig.esm.json",
+    "prepack": "npm run build"
   },
   "devDependencies": {
     "@types/chai": "^4.3.0",
