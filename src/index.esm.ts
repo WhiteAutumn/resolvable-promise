@@ -1,1 +1,1 @@
-export { default } from './resolvable';
+export { default } from './resolvable.js';
