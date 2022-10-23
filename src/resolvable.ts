@@ -1,4 +1,10 @@
-import { Executor, Reject, Resolvable, Resolve } from './types';
+
+export type Resolve<T> = (value?: T | PromiseLike<T>) => void;
+export type Reject = (reason?: any) => void;
+
+export type Executor<T> =
+	| Promise<T>
+	| ((resolve: Resolve<T>, reject: Reject) => void);
 
 function Resolvable<T>(handler?: Executor<T>) {
 	let resolve!: Resolve<T>;
@@ -25,12 +31,10 @@ function Resolvable<T>(handler?: Executor<T>) {
 	return result;
 }
 
-type ResolvableConstructor = {
-	new <T>(promise?: Executor<T>): Resolvable<T>
-	<T>(promise?: Executor<T>): Resolvable<T>
-};
+declare class Resolvable<T> extends Promise<T> {
+	constructor(promise?: Executor<T>);
+	resolve: Resolve<T>;
+	reject: Reject;
+}
 
-(Resolvable as any).default = Resolvable;
-export = Resolvable as unknown as ResolvableConstructor & {
-  default: ResolvableConstructor
-};
+export default Resolvable;
