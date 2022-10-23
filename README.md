@@ -1,15 +1,12 @@
-# resolvable-promise
+# `resolvable-promise`
+[![npm](https://img.shields.io/npm/v/resolvable-promise?style=for-the-badge)](https://www.npmjs.com/package/resolvable-promise) [![npm type definitions](https://img.shields.io/npm/types/resolvable-promise?style=for-the-badge)](#) [![npm modules type](https://img.shields.io/badge/modules-hybrid-blue?style=for-the-badge)](#) [![npm bundle size](https://img.shields.io/bundlephobia/min/resolvable-promise?style=for-the-badge)](https://bundlephobia.com/package/resolvable-promise)
+
+#
 
 I've found that for the majority of projects I keep needing to rewrite or copy-paste the same small piece of code,
 a function that creates a promise with the resolve and reject functions exposed. This project is that small snippet
 of code, created mostly for my own convenience.
 
-#
-
-### Installation
-```
-npm install resolvable-promise
-```
 
 #
 
