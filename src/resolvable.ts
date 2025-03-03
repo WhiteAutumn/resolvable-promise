@@ -1,16 +1,15 @@
 
 export type Resolve<T> = (value?: T | PromiseLike<T>) => void;
-export type Reject = (reason?: any) => void;
+export type Reject = (reason?: unknown) => void;
 
-export type Executor<T> =
-	| Promise<T>
+export type Executor<T> = Promise<T>
 	| ((resolve: Resolve<T>, reject: Reject) => void);
 
 function Resolvable<T>(handler?: Executor<T>) {
 	let resolve!: Resolve<T>;
 	let reject!: Reject;
 
-	const result: Resolvable<T> = new Promise((res, rej) => {
+	const result = <Resolvable<T>> <unknown> new Promise((res, rej) => {
 		resolve = res;
 		reject = rej;
 
@@ -24,7 +23,7 @@ function Resolvable<T>(handler?: Executor<T>) {
 		else if (handler.constructor === Promise) {
 			handler.then(res, rej);
 		}
-	}) as any;
+	});
 
 	result.resolve = resolve;
 	result.reject = reject;
@@ -34,7 +33,7 @@ function Resolvable<T>(handler?: Executor<T>) {
 declare class Resolvable<T> extends Promise<T> {
 	constructor(promise?: Executor<T>);
 	resolve: Resolve<T>;
-	reject: Reject;
+	reject:  Reject;
 }
 
 export default Resolvable;

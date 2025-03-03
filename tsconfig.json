@@ -1,15 +1,27 @@
 {
+  "include": ["./**/*.ts"],
   "compilerOptions": {
     // Target
-    "target": "ES2019",
-    "lib": ["ES2019"],
+    "target": "ES2020",
+    "lib": ["ES2020"],
     "module": "commonjs",
 
     // Safety
     "strict": true,
 
+    // Behavior
+    "esModuleInterop": true,
+
     // Output
-    "declaration": true
-  },
-  "exclude": ["src/**/*.test.*", "node_modules", "dist"]
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+
+    "paths": {
+      // This is solely to stop a bug with @types/node as of 12/15/2023
+      "undici-types": [
+        "./node_modules/undici-types/index.d.ts"
+      ],
+    }
+  }
 }

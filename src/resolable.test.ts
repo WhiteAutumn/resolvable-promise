@@ -41,7 +41,7 @@ describe('Resolvable', () => {
 		const resolvable = new Resolvable();
 
 		setImmediate(() => {
-			resolvable.reject();
+			resolvable.reject(new Error());
 		});
 
 		await expect(resolvable).to.be.rejected;
@@ -71,10 +71,14 @@ describe('Resolvable', () => {
 	});
 
 	it('should behave as promise if given promise executor function as constructor argument', async () => {
-		const resolvingResolvable = new Resolvable((resolve) => { resolve(42);});
+		const resolvingResolvable = new Resolvable(resolve => {
+			resolve(42);
+		});
 		await expect(resolvingResolvable).to.eventually.equal(42);
 
-		const rejectingResolvable = new Resolvable((resolve, reject) => { reject(new Error('test'));});
+		const rejectingResolvable = new Resolvable((resolve, reject) => {
+			reject(new Error('test'));
+		});
 		await expect(rejectingResolvable).to.be.rejected;
 	});
 

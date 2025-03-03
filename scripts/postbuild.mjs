@@ -1,7 +1,7 @@
-import path from 'path';
-import fs from 'fs/promises';
+import path from 'node:path';
+import fs from 'node:fs/promises';
 
-const mjsPath = './dist/mjs';
+const mjsPath = './dist/esm';
 const cjsPath = './dist/cjs';
 
 await Promise.all([
