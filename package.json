@@ -44,6 +44,12 @@
         "types": "./dist/cjs/lib.cjs.d.ts",
         "default": "./dist/cjs/lib.cjs.js"
       }
+    },
+    "./types": {
+      "require": {
+        "types": "./dist/cjs/types.cjs.d.ts",
+        "default": "./dist/cjs/types.cjs.js"
+      }
     }
   },
   "scripts": {

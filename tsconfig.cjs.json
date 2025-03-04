@@ -1,6 +1,6 @@
 {
   "include": ["src/**/*.ts"],
-  "exclude": ["src/lib.esm.ts"],
+  "exclude": ["src/**/*.esm.ts"],
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "module": "commonjs",
