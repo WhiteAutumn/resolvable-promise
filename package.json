@@ -1,6 +1,6 @@
 {
   "name": "resolvable-promise",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "Promises with the resolve and reject functions exposed",
   "author": "WhiteAutumn",
   "license": "MIT",
