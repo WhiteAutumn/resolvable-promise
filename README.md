@@ -31,8 +31,8 @@ You can optionally provide `Resolvable` with an executor callback just like a pr
 
 ```js
 const resolvable = new Resolvable((resolve, reject) => {
-	// Do something async..
-	resolve('Resolved!');
+  // Do something async..
+  resolve('Resolved!');
 });
 ```
 
